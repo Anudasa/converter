@@ -47,18 +47,21 @@ def denery_to_hexedecimal(num):
         num = num // 16
     return hexedecimal
 
-def prosses(answer):
+def prosses(): # input, conversion desision and output
     initial_systems = {'binary': binary_to_denery, 'hex': hexedecimal_to_denery}
     disered_systems = {'binary': denery_to_binary, 'hex': denery_to_hexedecimal}
     global denery
 
+    print("Enter using only space bar without any other symbols: initial_system number disered_system") #input block
+    answer = input.split()
+    prosses(answer)
     answer = answer.split()
 
-    if answer[0] == answer[2]:
+    if answer[0] == answer[2]: # desision block
         print(answer[1])
         return 0
 
-    for i in initial_systems:
+    for i in initial_systems: # finds out initial system and converts to denery
         if answer[0] == "denery":
             denery = answer[1]
             break
@@ -69,7 +72,7 @@ def prosses(answer):
             print("Такой системы счисления не существует 1")
             return 0
 
-    for i in disered_systems:
+    for i in disered_systems: # finds out disired system and converts denery value in disired
         if answer[2] == 'denery':
             print(denery)
             break
@@ -81,6 +84,13 @@ def prosses(answer):
             break
 
 
-print("Enter using only space bar without any other symbols: initial_system number disered_system")
-answer = input()
-prosses(answer)
+while True: #Loop for conversions.
+    prosses()
+    print("Couninue : Y / N")
+    decision = input()
+    if decision.capitalize == 'Y':
+        continue
+    elif decision.capitalize == 'N':
+        break
+    else:
+        break
